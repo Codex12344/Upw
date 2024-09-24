@@ -1,15 +1,20 @@
-const uploadForm = document.getElementById('upload-form');
-const codeTextarea = document.getElementById('code');
-const uploadStatusDiv = document.getElementById('upload-status');
+let questionInput = document.getElementById("question");
+let submitButton = document.getElementById("submit");
+let answerText = document.getElementById("answer-text");
+let sourceLink = document.getElementById("source-link");
+let imageUpload = document.getElementById("image-upload");
+let imageSolveButton = document.getElementById("image-solve");
+let imageAnswerText = document.getElementById("image-answer-text");
+let calculatorInput = document.getElementById("calculator-input");
+let calculatorSolveButton = document.getElementById("calculator-solve");
+let calculatorAnswerText = document.getElementById("calculator-answer");
 
-uploadForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const code = codeTextarea.value.trim();
-    if (code !== '') {
-        // Send the code to the server using AJAX or fetch API
-        // For demonstration purposes, we'll just display the code
-        uploadStatusDiv.textContent = `أكوادك تم رفعها بنجاح!`;
-    } else {
-        uploadStatusDiv.textContent = `يرجى إدخال أكوادك`;
-    }
-});
+// Math engine and calculator library
+const math = require('mathjs');
+const calculator = require('calculator-js');
+
+submitButton.addEventListener("click", async () => {
+    let question = questionInput.value.trim();
+    if (question !== "") {
+        try {
+            let response = await fetch(`https://api.homeworksolver.com/`)
