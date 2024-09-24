@@ -3,20 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رفع أكوادك 24/24h</title>
+    <title>Homework Solver</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>رفع أكوادك 24/24h</h1>
+        <h1>Homework Solver</h1>
+        <p id="quote">"Believe you can and you're halfway there." - Theodore Roosevelt</p>
     </header>
     <main>
-        <form id="upload-form">
-            <label for="code">أدخل أكوادك:</label>
-            <textarea id="code" name="code" cols="30" rows="10"></textarea>
-            <button type="submit">رفع أكوادك</button>
-        </form>
-        <div id="upload-status"></div>
+        <section class="solver">
+            <h2>Enter your homework question:</h2>
+            <textarea id="question" placeholder="Type your question here..."></textarea>
+            <button id="submit">Solve</button>
+            <div class="answer">
+                <h2>Answer:</h2>
+                <p id="answer-text"></p>
+                <p id="source">Source: <a id="source-link" target="_blank"></a></p>
+            </div>
+            <div class="image-solver">
+                <h2>Upload an image of your homework:</h2>
+                <input type="file" id="image-upload" accept="image/*">
+                <button id="image-solve">Solve</button>
+                <div class="image-answer">
+                    <h2>Answer:</h2>
+                    <p id="image-answer-text"></p>
+                </div>
+            </div>
+            <div class="calculator">
+                <h2>Advanced Calculator:</h2>
+                <input type="text" id="calculator-input" placeholder="Enter math expression...">
+                <button id="calculator-solve">=</button>
+                <p id="calculator-answer"></p>
+            </div>
+        </section>
+        <aside>
+            <img src="study.jpg" alt="Study Image">
+        </aside>
     </main>
     <script src="script.js"></script>
 </body>
